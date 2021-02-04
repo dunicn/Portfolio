@@ -19,10 +19,13 @@ async function stageTest() {
 
     page.on('console', msg => console.log(msg.text()));
 
+    let selector = 'button[class="open-window"]';
+    page.evaluate((selector) => document.querySelector(selector).click(), selector);
+
     await sleep(1000);
 
     let result = await hs.testPage(page,
-        // Test #1 - check if the document has a header
+        // Test #1 - check if the document has the header
         () => {
             let headers = document.getElementsByTagName('header');
 
@@ -58,7 +61,7 @@ async function stageTest() {
             let title = header.textContent || header.innerText;
 
             if (!title || title.length === 0) {
-                return hs.wrong('Cannot find a text within h1 element.');
+                return hs.wrong('Cannot find a text within h1 element');
             }
 
             return hs.correct();
@@ -178,6 +181,33 @@ async function stageTest() {
                     "It should be an image or some non-white color.")
             }
 
+            return hs.correct()
+        },
+
+        // Test #10 - check click button and show popup window
+        () => {
+            let buttons = document.getElementsByClassName('open-window');
+
+            if (buttons === null || buttons.length === 0) {
+                return hs.wrong('Cannot find a button with the class "open-window" to open the pop-up window.');
+            }
+
+            let forms = document.getElementsByClassName('window');
+
+            if (forms === null || forms.length === 0) {
+                return hs.wrong('Cannot find the element with the class "window".');
+            }
+
+            return hs.correct()
+        },
+
+        // Test #11 -  check that the page has a hamburger menu
+        () => {
+            let buttons = document.getElementsByClassName('hamburger');
+
+            if (buttons === null || buttons.length === 0) {
+                return hs.wrong('Not find the hamburger menu on your page. Create it and set the "hamburger" class to the tag that wraps the menu elements.');
+            }
             return hs.correct()
         }
     );

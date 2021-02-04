@@ -236,6 +236,120 @@ files:
         }
     );
   learner_created: false
+- name: src/style.css
+  visible: true
+  text: |-
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #739a95;
+    }
+    .flex-item {
+        text-align: center;
+        height: 100vh;
+        padding: 75px;
+        margin: 10px 25px;
+        background-color: #5579a5;
+    }
+
+    .nav-bar{
+        font-family: 'Noto Sans JP', sans-serif;
+        align-content: end;
+        align-items: end;
+    }
+    li{
+        display: flex;
+    }
+    a {
+        display: block;
+        padding: 1px;
+
+    }
+    li a:hover {
+        background-color: #7395ae;
+        color: white;
+    }
+    #home {
+        background-image: url("https://www.wallpapertip.com/wmimgs/83-838296_web-designer-professional-website-background-images.jpg");
+        background-repeat: no-repeat;
+    }
+    .home-page{
+        font-size: 5vh;
+        color: #b1a296;
+        text-align: center;
+    }
+    .button {
+        background-color: #5d5c61; /* Green */
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin: 5px;
+        display: inline-block;
+        font-size: 20px;
+        width: 10em;
+
+    }
+
+    #about{
+        background-image: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-blurred-house-room-interior-of-residential-building-cheap-real-estate-offers_hdxset1f6l_thumbnail-1080_01.png");
+        background-color: inherit;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 5vh;
+        color: #001f3f;
+        text-align: -webkit-left;
+    }
+    .bio{
+        text-align: center;
+        horiz-align: center;
+        padding-left: 20px;
+    }
+    .image{
+        float: left;
+    }
+    #portfolio{
+        background-image: url("https://static-cse.canva.com/blob/140227/zoom-backgrounds-banner.e146d798.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: inherit;
+        font-size: 5vh;
+        text-align: center;
+        color: #5579a5;
+        display: flex;
+    }
+    #contacts{
+        background-image: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-blurred-house-room-interior-of-residential-building-cheap-real-estate-offers_hdxset1f6l_thumbnail-1080_01.png");
+        background-color: inherit;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 2vh;
+        color: #001f3f;
+
+    }
+    .contact-info{
+        padding-top: 25vh;
+    }
+    #footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        font-size: 2vh;
+    }
+  learner_created: true
+- name: src/script.js
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/137/stages/733/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 04 Feb 2021 13:03:50 UTC
+record: 4

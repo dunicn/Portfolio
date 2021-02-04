@@ -5,6 +5,7 @@
     <title>Portfolio</title>
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -15,15 +16,22 @@
                 <header>
                     <h1>Nemanja Dunic, Front-end developer</h1>
                 </header>
+            </div >
+            <div class="hamburger">
+                <a href="#home" class="active">Home</a>
+                <ul>
+                    <nav id="myLinks">
+                        <li><a href="#about"><button type="button" class="button">About me</button></a></li>
+                        <li><a href="#portfolio"><button type="button" class="button">Portfolio</button> </a></li>
+                        <li><a href="#contacts"><button type="button" class="button">Contacts</button> </a></li>
+
+                    </nav>
+                </ul>
+                <a class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
-            <ul class="nav-bar">
-                <nav>
-                    <li><a href="#about"><button type="button" class="button">About me</button></a></li>
-                    <li><a href="#portfolio"><button type="button" class="button">Portfolio</button> </a></li>
-                    <li><a href="#contacts"><button type="button" class="button">Contacts</button> </a></li>
-                    <li><a href="#home"><button type="button" class="button">Home</button> </a></li>
-                </nav>
-            </ul>
+
 
 
         </div>
@@ -46,18 +54,27 @@
         <div class="flex-item" id="portfolio">
             <section>
                 <div>
-                    <h2>Portfolio</h2>
-                    <dev class="project1">
+
+                    <button data-window-target="#window" class="open-window">Flashcards</button>
+                    <div class="window" id="window">
+                        <div class="window-header">
+                            <div class="window-title">Flashcards</div>
+                        </div>
+                        <div class="window-body">
+                            <p class="window-description">You can see the project at the following link:<a href="#project1">flashcards</a></p>
+                            <p class="window-description">I did this project when I was studying the frontend
+                            on HyperSkill. I created a web page with flip-down flash cards, learned some HTML
+                            basics and learned that CSS can easily make a beautiful design.</p>
+                        </div>
+                        <button data-close-button class="close-button">Close</button>
+                    </div>
+                    <div class="project1">
+                        <h2>Portfolio</h2>
                         <img src="project1.png" title="Flashcards" height="45%" width="45%">
                         <p>Flashcards</p>
-                    </dev>
-                    <dev class="project2">
-                        <img src="project2.png" title="Virtual Piano" >
-                        <p>Virtual Piano</p>
-                    </dev>
-
-
+                    </div>
                 </div>
+                <div id="overlay"></div>
             </section>
         </div>
         <div class="flex-item" id="contacts">

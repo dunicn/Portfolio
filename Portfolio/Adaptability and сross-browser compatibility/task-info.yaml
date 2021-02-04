@@ -245,6 +245,260 @@ files:
         }
     );
   learner_created: false
+- name: src/style.css
+  visible: true
+  text: |-
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #739a95;
+    }
+    .flex-item {
+        text-align: center;
+        height: 100vh;
+        padding: 75px;
+        margin: 10px 25px;
+        background-color: #5579a5;
+    }
+
+    .nav-bar{
+        right: 5%;
+        top: 6%;
+        float: right;
+        font-family: 'Noto Sans JP', sans-serif;
+        align-content: end;
+        align-items: end;
+        overflow: hidden;
+        width: 200px;
+
+        position: fixed;
+
+    }
+    .nav-bar #myLinks {
+        display: none;
+    }
+    .nav-bar a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+
+    }
+    /* Style the hamburger menu */
+    .nav-bar a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .nav-bar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .active {
+        background-color: #5579a5;
+        color: white;
+    }
+
+
+    li a:hover {
+        background-color: #7395ae;
+        color: white;
+    }
+    #home {
+        background-image: url("https://www.wallpapertip.com/wmimgs/83-838296_web-designer-professional-website-background-images.jpg");
+        background-repeat: no-repeat;
+    }
+    .home-page{
+        font-size: 5vh;
+        color: #b1a296;
+        text-align: left;
+    }
+    .button {
+        background-color: #5579a5; /* Green */
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin: 5px;
+        display: inline-block;
+        font-size: 20px;
+        width: 10em;
+
+    }
+
+    #about{
+        background-image: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-blurred-house-room-interior-of-residential-building-cheap-real-estate-offers_hdxset1f6l_thumbnail-1080_01.png");
+        background-color: inherit;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 5vh;
+        color: #001f3f;
+        text-align: left;
+    }
+    .bio{
+        text-align: center;
+        horiz-align: center;
+        padding-left: 20px;
+    }
+    .image{
+        float: left;
+    }
+    #portfolio{
+        background-image: url("https://static-cse.canva.com/blob/140227/zoom-backgrounds-banner.e146d798.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: inherit;
+        font-size: 5vh;
+        text-align: center;
+        color: #5579a5;
+        display: flex;
+    }
+    #contacts{
+        background-image: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-blurred-house-room-interior-of-residential-building-cheap-real-estate-offers_hdxset1f6l_thumbnail-1080_01.png");
+        background-color: inherit;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 2vh;
+        color: #001f3f;
+
+    }
+    .contact-info{
+        padding-top: 25vh;
+    }
+    #footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        font-size: 2vh;
+    }
+    .window-description{
+        font-size: 15px;
+        padding: 10px;
+    }
+    .window{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 200ms ease-in-out;
+        border: 2px solid black;
+        border-radius: 15px;
+        z-index: 10;
+        background-color: white;
+        width: 500px;
+        max-width: 50%;
+    }
+
+    .window.active{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    .window-title{
+        padding: 10px;
+        font-size: 30px;
+    }
+    .close-button{
+        background-color: #5579a5;
+        color: white;
+        height: 25%;
+        width: 30%;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .open-window{
+        background-color: #5579a5;
+        color: white;
+        height: 25%;
+        width: 15%;
+        max-width: 30%;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #overlay{
+        position: fixed;
+        opacity: 0;
+        transition: 200ms ease-in-out;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+    #overlay.active{
+        opacity: 1;
+        pointer-events: all;
+    }
+  learner_created: true
+- name: src/script.js
+  visible: true
+  text: |
+    const openWindowButtons = document.querySelectorAll('[data-window-target]')
+    const closeWindowButtons = document.querySelectorAll("[data-close-button]")
+    const overlay = document.getElementById('overlay')
+
+    openWindowButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const window = document.querySelector(button.dataset.windowTarget)
+            openWindow(window)
+        })
+    })
+    // overlay.addEventListener('click', () => {
+    //     const windows = document.querySelectorAll(".window.active")
+    //     windows.forEach(window => {
+    //         closeWindow(window)
+    //     })
+    // })
+
+    closeWindowButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const window = button.closest('.window')
+            closeWindow(window)
+        })
+    })
+
+
+    function openWindow(window) {
+        if (window == null) return
+        window.classList.add('active')
+        overlay.classList.add('active')
+    }
+
+    function closeWindow(window) {
+        window.classList.remove('active')
+        overlay.classList.remove('active')
+    }
+
+    function myFunction() {
+        let x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/137/stages/734/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 04 Feb 2021 14:23:10 UTC
 record: -1
